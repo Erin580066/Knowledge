@@ -14,16 +14,45 @@
 			var oBtn = document.getElementById("btn");
 			var oBox = document.getElementById("box");
 			var obj = {};
+			//html5当中的历史管理：
+//				方法一:onhashchange事件
+
+//			oBtn.onclick = function(){
+//				var Number = randNum(35,7);
+//				oBox.innerHTML = Number;
+//				var oRD = Math.random();
+//				obj[oRD] = Number
+//				window.location.hash = oRD;
+//			}
+////			onhashchange事件:当hash值有变化时就会触发
+//			window.onhashchange = function(){
+//				var Number = obj[window.location.hash.substring(1)]||'';
+//				oBox.innerHTML = Number;
+//			}
+//			function randNum(all,now){
+//				var arr = [];
+//				var arrNew = [];
+//				for (var i = 1; i <= all; i++) {
+//					arr.push(i)
+//				}
+////				alert(arr)//arr里有1-35这些数字
+//				for (var i = 0; i < now; i++) {
+//					arrNew.push(arr.splice(Math.floor(Math.random()*arr.length),1));
+//				}
+//				console.log(Math.random()*arr.length)
+//				return arrNew;
+//			}
+
+//			通过history
+//				方法二: history.pushState(参数1，参数2，参数3) 1：数据  2：标题 3 ：地址 
+//										注意:标题这个方法还没完全实现所以平常就写个 ''
 			oBtn.onclick = function(){
 				var Number = randNum(35,7);
 				oBox.innerHTML = Number;
-				var oRD = Math.random();
-				obj[oRD] = Number
-				window.location.hash = oRD;
+				history.pushState(Number,'');
 			}
-//			onhashchange事件:当hash值有变化时就会触发
-			window.onhashchange = function(){
-				var Number = obj[window.location.hash.substring(1)]||'';
+			window.onpopstate = function(ev){
+				var Number = ev.state;
 				oBox.innerHTML = Number;
 			}
 			function randNum(all,now){
@@ -39,7 +68,6 @@
 				console.log(Math.random()*arr.length)
 				return arrNew;
 			}
-//			history
 		</script>
 		
 	</body>
