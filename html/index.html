@@ -21,6 +21,7 @@
 				obj[oRD] = Number
 				window.location.hash = oRD;
 			}
+//			onhashchange事件:当hash值有变化时就会触发
 			window.onhashchange = function(){
 				var Number = obj[window.location.hash.substring(1)]||'';
 				oBox.innerHTML = Number;
@@ -38,7 +39,7 @@
 				console.log(Math.random()*arr.length)
 				return arrNew;
 			}
-			
+//			history
 		</script>
 		
 	</body>
