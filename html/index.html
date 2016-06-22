@@ -13,10 +13,18 @@
 		<script type="text/javascript">
 			var oBtn = document.getElementById("btn");
 			var oBox = document.getElementById("box");
+			var obj = {};
 			oBtn.onclick = function(){
 				var Number = randNum(35,7);
 				oBox.innerHTML = Number;
-			};
+				var oRD = Math.random();
+				obj[oRD] = Number
+				window.location.hash = oRD;
+			}
+			window.onhashchange = function(){
+				var Number = obj[window.location.hash.substring(1)]||'';
+				oBox.innerHTML = Number;
+			}
 			function randNum(all,now){
 				var arr = [];
 				var arrNew = [];
