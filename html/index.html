@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>模拟彩票35选7</title>
+		<style type="text/css">
+			#box{width:500px;height:400px;border:1px solid #000;}
+		</style>
+	</head>
+	<body>
+		<input type="button" value="35选7" id="btn"/>
+		<div id="box"></div>
+		<script type="text/javascript">
+			var oBtn = document.getElementById("btn");
+			var oBox = document.getElementById("box");
+			oBtn.onclick = function(){
+				var Number = randNum(35,7);
+				oBox.innerHTML = Number;
+			};
+			function randNum(all,now){
+				var arr = [];
+				var arrNew = [];
+				for (var i = 1; i <= all; i++) {
+					arr.push(i)
+				}
+//				alert(arr)//arr里有1-35这些数字
+				for (var i = 0; i < now; i++) {
+					arrNew.push(arr.splice(Math.floor(Math.random()*arr.length),1));
+				}
+				console.log(Math.random()*arr.length)
+				return arrNew;
+			}
+			
+		</script>
+		
+	</body>
+</html>
