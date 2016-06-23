@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function createJs(sUrl){
+				var oScript = document.createElement('script');
+				oScript.type = "text/javascript";
+				oScript.src = sUrl;
+				document.getElementsByTagName('head')[0].appendChild(oScript);
+			}
+			createJs("jsonp.js?callback=fn")
+			function fn(json){
+				alert(json.name)
+			}
+		</script>
+		<!--<script type="text/javascript" src="jsonp.js"></script>-->
+	</body>
+</html>
