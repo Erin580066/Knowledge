@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+//			var str = "我很在乎你";
+//			alert(str.charAt());////默认是第0位     返回 我
+//			alert(str.charAt(1));////默认是第1位     返回 很
+//			alert(str.charCodeAt())//// 25105
+//			alert(String.fromCharCode(25105));///我
+			
+			function detectNum(str){
+				var n = 0;
+				for (var i = 0; i < str.length; i++) {
+					n = str.charCodeAt(i);
+					if(n<48||n>57){
+						return false
+					}
+				}
+				return true;
+			}
+			alert(detectNum('123445667'))///true
+			alert(detectNum(' 123445667'))///false  页可以检测空格
+			alert(detectNum('1dsdfhfdj23445667'))///false
+			
+			
+			
+			
+			
+		</script>
+		
+	</body>
+</html>
