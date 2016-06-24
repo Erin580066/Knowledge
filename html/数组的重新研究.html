@@ -8,30 +8,30 @@
 		<input type="button" id="btn" value="按钮" />
 		<div id="box">1,2,3,4</div>
 		<script type="text/javascript">
-//		var arr = [1,2,3,4,5];
-//		var arr1 = ['1','df','dg','sdf'];
-//		var json = {
-//			"name":"momo",
-//			"age":39,
-//			'fun':"前端开发"
-//		};
-//		for(var attr in json){
-//			alert(json[attr])
-//		}
-//		console.log(arr.push('abc'));///返回值是6
-//		console.log(arr);//[1,2,3,4,5,'abc'];
-
-//		console.log(arr.unshift('abc'));///返回值是7
-//		console.log(arr)//['abc',1,2,3,4,5,'abc']
-
-//		console.log(arr.pop());//返回值是5
-//		console.log(arr)//[1,2,3,4]
-		
-//		console.log(arr.shift());//返回值是1
-//		console.log(arr)//[2,3,4,5]
-		
-//		console.log(arr.splice(1,2,'abc'));
-//		console.log(arr)
+//			var arr = [1,2,3,4,5];
+//			var arr1 = ['1','df','dg','sdf'];
+//			var json = {
+//				"name":"momo",
+//				"age":39,
+//				'fun':"前端开发"
+//			};
+//			for(var attr in json){
+//				alert(json[attr])
+//			}
+//			console.log(arr.push('abc'));///返回值是6
+//			console.log(arr);//[1,2,3,4,5,'abc'];
+//	
+//			console.log(arr.unshift('abc'));///返回值是7
+//			console.log(arr)//['abc',1,2,3,4,5,'abc']
+//
+//			console.log(arr.pop());//返回值是5
+//			console.log(arr)//[1,2,3,4]	
+//		
+//			console.log(arr.shift());//返回值是1
+//			console.log(arr)//[2,3,4,5]
+//			
+//			console.log(arr.splice(1,2,'abc'));
+//			console.log(arr)	
 //			var str = '';
 //			var num = 0;
 //			for(var attr in window){
@@ -39,6 +39,97 @@
 //				num++;
 //			}
 //			document.body.innerHTML = str;
+			
+//			数组去重
+//				方法一:
+//			var arr = [1,2,3,4,4,3,2,4,5];
+//			for (var i = 0; i < arr.length; i++) {
+//				for (var j = i + 1; j < arr.length; j++) {
+//					if(arr[i]==arr[j]){
+//						arr.splice(j,1);
+//						j--;
+//					}
+//				}
+//			}
+//			console.log(arr);
+////				方法二:
+//			var arr = [1,2,3,4,4,3,2,4,5];
+//			function qc(arr){
+//				var arrNew = [];
+//				var json = {};
+//				for (var i = 0; i < arr.length; i++) {
+//					if(!json[arr[i]]){
+//						arrNew.push(arr[i]);
+//						json[arr[i]]=1;
+//					}
+//				}
+//				return arrNew;
+//			}
+//			console.log(qc(arr));	
+			
+			
+//			Array.prototype.qc = function(){
+//				var json = {};
+//				var arr = [];
+//				for (var i = 0; i < this.length; i++) {
+//					var v = this[i];
+//					if(!json[typeof v + v]){
+//						arr.push(v);
+//						json[typeof v + v] = 1
+//					}
+//				}
+//				return arr;
+//			}
+//			var arr = [1,2,3,4,'1','2',3];
+//			console.log(arr.qc());	
+			
+//			var arr = [1,4,56,3,3,7463,43];
+////			arr.sort();//从小到大排列
+//			arr.sort(function(a,b){
+//				return a-b;
+//			})
+//			console.log(arr);
+			
+//			var arr = ['100px','200px','676','880px'];
+//			arr.sort(function(a,b){
+////				return parseInt(a) - parseInt(b);
+//				return parseInt(b) - parseInt(a);
+//			})
+//			console.log(arr);
+//			随机排序即打乱顺序
+//			var arr = [1,2,3,4,5,6];
+//			arr.sort(function(a,b){
+//				return Math.random()-0.5;
+//			})
+//			console.log(arr);
+			
+//			随机数公式:
+//			var x = 3;
+//			var y = 5;
+////			alert(Math.round(Math.random()*(y-x)+x))//3-5之间的随机数
+//			alert(Math.ceil(Math.random()*x))//1-3之间的随机数
+//			
+//			var arr1 = [1,2,3];
+//			var arr2 = [4,5,6];
+//			var arr3 = [7,8,9];
+//			alert(arr1.concat(arr2,arr3))
+			
+//			var arr = [1,2,3,4,5,6];
+//			arr.reverse();//颠倒数组的顺序
+//			alert(arr)
+			
+//			怎么样颠倒字符串
+			var str = 'acdefg';
+			console.log(str.split('').reverse().join(''))//gfedca
+			
+			
+			
+			
+			
+			
+			
+			
+			
 		</script>
 	</body>
 </html>
