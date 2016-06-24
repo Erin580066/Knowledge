@@ -1,69 +1,113 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!doctype html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>无标题文档</title>
-<style>
-*{ margin:0; padding:0;}
-li{ list-style:none;}
-#div1{ width:350px; height:60px; border:1px #000000 solid; position:relative; margin:0 auto; overflow:hidden;}
-#div1 ul{ position:absolute; left:0;}
-#div1 ul li{ width:80px; height:60px; margin-right:10px; float:left;}
-</style>
-<script type="text/javascript" src="move.js"></script>
-<script>
-window.onload = function(){
-	var oInput = document.getElementById('input1');
-	var oUl = document.getElementById('ul1');
-	var aLi = oUl.getElementsByTagName('li');
-	
-	var oneSize = aLi[0].offsetWidth + 10;
-	var iNum = 4;
-	var bBtn = true;
-	
-	function getWidth(){
-		oUl.style.width = aLi.length * oneSize + 'px';
+<meta charset="UTF-8" />
+<title>Document</title>
+<style type="text/css">
+	body,ul{padding:0;margin:0;}
+	li{list-style:none;}
+	img{
+		text-decoration: none;
+		width:350px;
+		height:500px;
+		display: block;
 	}
-	getWidth();
-	
-	oInput.onclick = function(){
+	#box{
+		width:350px;
+		height:500px;
+		border:10px solid springgreen;
+		position:relative;
+		margin:0 50px;
+		/*overflow: hidden;*/
+	}
+	#list{
+		position:absolute;
+		left:0;
 		
-		if(bBtn){
-			bBtn = false;
-			for(var i=0;i<iNum;i++){
-				var oLi = aLi[i].cloneNode(true);
-				oUl.appendChild(oLi);
-				getWidth();
-			}
-			
-			startMove(oUl,{left : - iNum * oneSize},function(){
-			
-				for(var i=0;i<iNum;i++){
-					oUl.removeChild(aLi[0]);
-					oUl.style.left = 0;
-				}
-				
-				bBtn = true;
-			
-			});
-		}
-
-	};
-	
-};
-</script>
+	}
+	#box #list li{
+		width:350px;
+		height:500px;
+		float:left;
+	}
+</style>
 </head>
-
 <body>
-<input type="button" value="切换" id="input1" />
-<div id="div1">
-	<ul id="ul1">
-    	<li><img src="../img/1.jpg" /></li>
-        <li><img src="../img/2.jpg" /></li>
-        <li><img src="../img/3.jpg" /></li>
-        <li><img src="../img/4.jpg" /></li>
-        <li><img src="../img/5.jpg" /></li>
-    </ul>
-</div>
+	<input type="button" value="下一张" id="btn1"/>
+	<input type="button" value="上一张" id="btn2"/>
+	<div id="box">
+		<ul id="list">
+			<li>
+				<img src="../img/1.jpg"/>
+			</li>
+			<li>
+				<img src="../img/2.jpg"/>
+			</li>
+			<li>
+				<img src="../img/3.jpg"/>
+			</li>
+			<li>
+				<img src="../img/4.jpg"/>
+			</li>
+			<li>
+				<img src="../img/5.jpg"/>
+			</li>
+		</ul>
+	</div>
+	<script type="text/javascript" src="../js/move.js"></script>
+	<script type="text/javascript">
+		var oBtn = document.getElementById("btn1");
+		var oBtn2 = document.getElementById("btn2");
+		var oList = document.getElementById("list");
+		var aLi = document.getElementsByTagName('li')
+		var oneSize = aLi[0].offsetWidth;
+		var iNum = 4;
+		var onoff = true;
+		function getWidth(){
+			oList.style.width = aLi.length*oneSize + 'px';
+		}
+		getWidth();
+//		oBtn.onclick = function(){
+//			if(onoff){
+//				onoff = false;
+//				for (var i = 0; i < iNum; i++) {
+//					var li = aLi[i].cloneNode(true);
+//					oList.appendChild(li);
+//					getWidth();
+//				}
+//				startMove(oList,{left:-iNum * oneSize},function(){
+//					for (var i = 0; i < iNum; i++) {
+//						oList.removeChild(aLi[0]);
+//						oList.style.left = 0;
+//						onoff = true;
+//					}
+//				});
+//			}
+//		}
+		oBtn2.onclick = function(){
+			
+			for (var i = 0; i < iNum; i++) {
+					var li = aLi[i].cloneNode(true);
+					oList.insertBefore(li,this.children[0])
+					getWidth();
+				}
+//			if(onoff){
+////				onoff = false;
+//				for (var i = 0; i < iNum; i++) {
+//					var li = aLi[i].cloneNode(true);
+////					oList.insertBefore(li,this.children[0])
+////					getWidth();
+//				}
+//				startMove(oList,{left:iNum * oneSize},function(){
+//					for (var i = 0; i < iNum; i++) {
+//						oList.removeChild(aLi[0]);
+//						oList.style.left = 0;
+//						onoff = true;
+//					}
+//				});
+//			}
+		}
+		
+	</script>
 </body>
 </html>
