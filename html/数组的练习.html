@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>打乱图片</title>
+		<style>
+			body,ul{margin:0;padding:0}
+			li{width:250px;height:350px;list-style:none;float:left;margin-right:10px;}
+			#list{width:1200px;height:700px;border:1px solid red;}
+			img{width:250px;height:300px;}
+			li span{text-align:center;font:bold 40px/50px "微软雅黑";display:block;}
+		</style>
+	</head>
+	<body>
+		<input type="button" id="btn1" value="从大到小排列" />
+		<input type="button" id="btn2" value="颠倒顺序" />
+		<ul id="list">
+			<li>
+				<img src="../img/1.jpg" />
+				<span>这是第一张</span>
+			</li>
+			<li>
+				<img src="../img/2.jpg" />
+				<span>这是第二张</span>
+			</li>
+			<li>
+				<img src="../img/3.jpg" />
+				<span>这是第三张</span>
+			</li>
+			<li>
+				<img src="../img/4.jpg" />
+				<span>这是第四张</span>
+			</li>
+			<li>
+				<img src="../img/5.jpg" />
+				<span>这是第五张</span>
+			</li>
+			<li>
+				<img src="../img/6.jpg" />
+				<span>这是第六张</span>
+			</li>
+			<li>
+				<img src="../img/7.jpg" />
+				<span>这是第七张</span>
+			</li>
+			<li>
+				<img src="../img/8.jpg" />
+				<span>这是第八张</span>
+			</li>
+		</ul>
+		<script>
+			var oBtn1 = document.getElementById("btn1");
+			var oBtn2 = document.getElementById("btn2");
+			var List = document.getElementById('list');
+			var lis = List.getElementsByTagName('li');
+			var imgs = List.getElementsByTagName('img');
+			var spans = List.getElementsByTagName('span');
+			var onoff = true;
+			var imgArr = ['这是第一张','这是第二张','这是第三张','这是第四张','这是第五张','这是第六张','这是第七张','这是第八张'];
+			var picArr = ["../img/1.jpg","../img/2.jpg","../img/3.jpg","../img/4.jpg","../img/5.jpg","../img/6.jpg","../img/7.jpg","../img/8.jpg"];
+			var arr = [1,2,3,4,5,6,7,8];
+			for(var i=0;i<arr.length;i++){
+				arr[i] = i;
+			}
+			oBtn1.onclick = function(){
+				if(onoff){
+					onoff = false;
+					this.value = '从小到大排列'
+					arr.reverse();
+//					arr.sort(function(a,b){
+//						return parseInt(a) - parseInt(b);
+//					})
+					upset();
+				}else{
+					onoff = true;
+					arr.reverse();
+					this.value = '从大到小排列';
+					upset();
+				}
+				onoff != onoff;
+			}
+			oBtn2.onclick = function(){
+				arr.sort(function(){
+					return Math.random()-0.5;
+				});
+				upset()
+				
+			}
+			
+			function upset(){
+				for(var i=0;i<imgs.length;i++){
+					imgs[i].src = picArr[arr[i]];
+					spans[i].innerHTML = imgArr[arr[i]];
+				}
+			}
+		</script>
+	</body>
+</html>
