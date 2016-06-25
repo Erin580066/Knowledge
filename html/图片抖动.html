@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			img{
+				width:100px;
+				height:100px;
+				position:absolute;
+				/*left:300px;*/
+				top:100px;
+			}
+			/*img:nth-of-type(1){
+				left:50px;
+			}*/
+		</style>
+	</head>
+	<body>
+		<img src="../img/1.jpg"  />
+		<img src="../img/2.jpg"  />
+		<img src="../img/3.jpg"  />
+		<img src="../img/4.jpg"  />
+		<img src="../img/5.jpg"  />
+		<img src="../img/6.jpg"  />
+		<img src="../img/7.jpg"  />
+		<img src="../img/8.jpg"  />
+		<script src="../js/move1.js"></script>
+		<script type="text/javascript">
+			var imgs = document.getElementsByTagName('img');
+			for (var i = 0; i < imgs.length; i++) {
+				imgs[i].style.left = 80 +i*110 + 'px';
+				imgs[i].onmouseover = function(){
+					fnShake(this,'top')
+				}
+			}
+			
+			
+//			封装一个抖动函数
+			function fnShake(obj, attr, endFn){
+				if(obj.index){return};
+				obj.index = true;
+				var arr = [];			// 20, -20, 18, -18 ..... 0
+				var num = 0;
+				var shake = null;
+				for ( var i=30; i>0; i-=2 ) {
+					arr.push( i, -i );
+				}
+				console.log(arr)
+				arr.push(0);
+				clearInterval( obj.shake );
+				obj.shake = setInterval(function (){
+					var pos = parseInt( getStyle(obj, attr),0 );
+					obj.style[attr] = pos + arr[num] + 'px';
+					num++;
+					if ( num === arr.length ) {
+						clearInterval( obj.shake );
+						endFn && endFn();
+						obj.index = false;
+					}
+				},40);
+			}
+		</script>
+	</body>
+</html>
