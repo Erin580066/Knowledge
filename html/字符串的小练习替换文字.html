@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			p{
+				width:650px;
+				height:450px;
+				line-height: 26px;
+				border:5px solid pink;
+				overflow: auto;
+			}
+			span{
+				padding:5px;
+				background:pink;
+				font-size: 20px;
+				color:#fff;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="text" />
+		<input type="text" />
+		<input type="button" value="替换" />
+		<p id="p1">
+			我是一只小毛驴呀从来没人骑我是一只小毛驴呀从来没人骑我是一只小毛驴呀从来没人骑
+			我是一只小毛驴呀从来没人骑我是一只小毛驴呀从来没人骑我是一只小毛驴呀从来没人骑
+			我是一只小毛驴呀从来没人骑我是一只小毛驴呀从来没人骑我是一只小毛驴呀从来没人骑
+			我是一只小毛驴呀从来没人骑我是一只小毛驴呀从来没人骑我是一只小毛驴呀从来没人骑
+			我是一只小毛驴呀从来没人骑我是一只小毛驴呀从来没人骑我是一只小毛驴呀从来没人骑
+			我是一只小毛驴呀从来没人骑我是一只小毛驴呀从来没人骑我是一只小毛驴呀从来没人骑
+			我是一只小毛驴呀从来没人骑我是一只小毛驴呀从来没人骑我是一只小毛驴呀从来没人骑
+			我是一只小毛驴呀从来没人骑我是一只小毛驴呀从来没人骑我是一只小毛驴呀从来没人骑
+			我是一只小毛驴呀从来没人骑我是一只小毛驴呀从来没人骑我是一只小毛驴呀从来没人骑
+			我是一只小毛驴呀从来没人骑我是一只小毛驴呀从来没人骑我是一只小毛驴呀从来没人骑
+			我是一只小毛驴呀从来没人骑我是一只小毛驴呀从来没人骑我是一只小毛驴呀从来没人骑
+			我是一只小毛驴呀从来没人骑我是一只小毛驴呀从来没人骑我是一只小毛驴呀从来没人骑
+		</p>
+		<script type="text/javascript">
+			var inps = document.getElementsByTagName('input');
+			var oP = document.getElementById("p1");
+			inps[2].onclick = function(){
+				var str = inps[0].value;
+				var str1 = inps[1].value;
+				if(!str||!str1||str==str1)return
+				oP.innerHTML = oP.innerHTML.split(str).join('<span>'+str1+'</span>')
+			}
+		</script>
+	</body>
+</html>
