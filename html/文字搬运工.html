@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			p{
+				width:400px;
+				height:450px;
+				line-height: 26px;
+				border:5px solid orangered;
+				overflow: auto;
+			}
+			span{
+				padding:5px;
+				background:pink;
+				font-size: 20px;
+				color:#fff;
+			}
+			.fl{float:left;}
+			.div1,.div2{
+				width:100px;
+				height:40px;
+				font:bold 20px/40px "agency fb";
+				text-align: center;
+				text-shadow: 2px 2px 5px #000;
+				border:3px solid blue;
+				border-radius: 10px;
+				margin:80px 20px 20px 20px;
+			}
+			.div1{margin:80px 20px 20px 20px;}
+			.div2{margin:200px 0 0 -125px;}
+		</style>
+	</head>
+	<body>
+		<p id="p1" class="fl">我是一只小毛驴呀从来没人骑我是一只小毛驴呀从来没人骑
+			我是一只小毛驴呀从来没人骑我是一只小毛驴呀从来没人骑
+			我是一只小毛驴呀从来没人骑我是一只小毛驴呀从来没人骑
+			我是一只小毛驴呀从来没人骑我是一只小毛驴呀从来没人骑
+			我是一只小毛驴呀从来没人骑我是一只小毛驴呀从来没人骑
+			我是一只小毛驴呀从来没人骑我是一只小毛驴呀从来没人骑
+			我是一只小毛驴呀从来没人骑我是一只小毛驴呀从来没人骑
+			我是一只小毛驴呀从来没人骑我是一只小毛驴呀从来没人骑
+			我是一只小毛驴呀从来没人骑我是一只小毛驴呀从来没人骑</p>
+		<div class="fl div1">开始搬运</div>
+		<div class="fl div2">1/100</div>
+		<p class="fl"></p>
+		<script type="text/javascript">
+			var oDiv = document.getElementsByTagName('div');
+			var oP = document.getElementsByTagName('p');
+			var timer = null;
+			oDiv[0].onclick = function(){
+				clearInterval(timer);
+				timer = setInterval(function(){
+//					方法一:直接截取字符串就可以
+					oP[1].innerHTML += oP[0].innerHTML.charAt();//0可填可不填
+					oP[0].innerHTML = oP[0].innerHTML.substring(1);
+//					方法二:把字符串转成数组再截取再转成字符串
+//					if(oP[0].innerHTML != ''){
+//						var arr = oP[0].innerHTML.split("");
+//						oP[1].innerHTML += arr.splice(0,1); 
+//						oP[0].innerHTML = arr.join("");
+//					}else{
+//						clearInterval(timer);
+//					}
+				},30)
+			}
+			
+		</script>
+	</body>
+</html>
