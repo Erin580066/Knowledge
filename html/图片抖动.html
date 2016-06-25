@@ -22,29 +22,35 @@
 		<script src="../js/miaov.js"></script>
 		<script type="text/javascript">
 			var imgs = document.getElementsByTagName('img');
-			imgs[0].onclick = function(){
-				var that = this;
-				fnShake(that,'left',function(){
-					fnShake(that,'top')
-				})
+			imgs[0].onclick = fn;
+			imgs[1].onclick = fn;
+			function fn() {
+				var _this = this;
+				fnShake( _this, 'left', function(){
+					fnShake( _this, 'top' );
+				});
 			}
 //			封装一个抖动函数
 			function fnShake(obj, attr, endFn){
-				var pos = parseInt( getStyle(obj, attr) );
+				if(obj.onoff){return}
+				obj.onoff = true;
 				var arr = [];			// 20, -20, 18, -18 ..... 0
 				var num = 0;
-				var timer = null;
+				var shake = null;
 				for ( var i=30; i>0; i-=2 ) {
 					arr.push( i, -i );
 				}
 				arr.push(0);
 				clearInterval( obj.shake );
 				obj.shake = setInterval(function (){
+					var pos = parseInt( getStyle(obj, attr),0 );
 					obj.style[attr] = pos + arr[num] + 'px';
 					num++;
 					if ( num === arr.length ) {
 						clearInterval( obj.shake );
+						obj.onoff = false;
 						endFn && endFn();
+						
 					}
 				},40);
 			}
