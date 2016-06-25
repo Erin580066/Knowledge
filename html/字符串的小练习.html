@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{
+				width:500px;
+				height:300px;
+				border:5px solid #00FF7F;
+				border-radius: 15px;
+				overflow:auto;
+			}
+			input{
+				margin-top:10px;
+			}
+			input:nth-of-type(1){
+				width:400px;
+				height:40px;
+			}
+			input:nth-of-type(2){
+				width:100px;
+				height:45px;
+				background:pink;
+			}
+			span{
+				width:20px;
+				height:20px;
+				color:#fff;
+				font:bold 16px/20px "微软雅黑";
+				text-align: center;
+				text-shadow: 2px 2px 2px #000000;
+				border-radius: 5px;;
+				display:inline-block;
+				padding:5px;
+				margin:5px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		<input type="text" />
+		<input type="button" value="确定"/>
+		<script type="text/javascript">
+			var oBox = document.getElementById("box");
+			var inps = document.getElementsByTagName('input');
+			var arrColor = ['red','pink','green','orange','blue','yellow','plum']
+			inps[1].onclick = function(){
+				var str = inps[0].value;
+				var arr = str.split('');
+				for (var i = 0; i < arr.length; i++) {
+					arr[i] = '<span style="background:'+arrColor[i%arrColor.length]+';">'+arr[i]+'</span>'
+				}
+				oBox.innerHTML+=arr.join('');
+			}
+		</script>
+	</body>
+</html>
