@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+//			function sum(){
+//				var n = 0;
+//				for (var i = 0; i < arguments.length; i++) {
+//					n += arguments[i];
+//				}
+//				return n;
+//			}
+//			alert(sum(1,3,4))///8
+			
+//			var a = 1;
+//			function fn(){
+//				alert(a);/// undefind
+//				var a = 2
+//			}
+//			fn();
+//			alert(a);//   1
+//			
+//			var a = 1;
+//			function fn(a){
+//				alert(a);//  1
+//				var a = 2;
+//			}
+//			fn(a);
+//			alert(a);//   		1
+			
+//			var a = 1;
+//			function fn(a){
+//				arguments[0] = 3;
+//				alert(a);//            3
+//				var a = 2;
+//				alert(arguments[0]);// 2
+//			}
+//			fn(a);
+//			alert(a);//                1
+			
+//			alert(a); //function a(){alert(2)}
+//			var a = 1;
+//			alert(a); //  1
+//			function a(){alert(2)}
+//			alert(a) //   1
+//
+//			var a = 1;
+//			function fn(){
+//				alert(a)///undifined///找a是个未定义所以谈个undifined
+//				var a = 2//现在局部函数  a = 2
+//			}
+//			fn();//这里函数调用了就会返回上面函数里重新预解析
+//			alert(a)//1    这里的一是全局的1
+			
+//			var a = 1;
+//			function fn(){
+//				alert(a)///第二次预解析的时候就会去父级找a  所以弹个  1
+//				a = 2//接着把a的值变成 2
+//			}
+//			fn();//这里函数调用了就会返回上面函数里重新预解析
+//			alert(a)//  所以这里的值就成了2
+			
+//			var a = 1;
+//			function fn(a){
+//				alert(a)///fn(a)这里的a是一个参数，相当于var a  所以a弹出undefined
+//				a = 2//接着把a的值变成 2
+//			}
+//			fn();//这里函数调用了就会返回上面函数里重新预解析
+//			alert(a)// 这里的a还是全局的a  弹1
+			
+			var a = 1;
+			function fn(a){
+				alert(a)///这里的a回去父级找到a=1  弹1
+				a = 2//接着把a的值变成 2
+			}
+			fn(a);//这里函数调用了就会返回上面函数里重新预解析
+			alert(a)// 这里的a还是全局的a  弹1
+			
+			
+		</script>
+	</body>
+</html>
