@@ -71,15 +71,48 @@
 //			fn();//这里函数调用了就会返回上面函数里重新预解析
 //			alert(a)// 这里的a还是全局的a  弹1
 			
+//			var a = 1;
+//			function fn(a){
+//				alert(a)///这里的a回去父级找到a=1  弹1
+//				a = 2//接着把a的值变成 2
+//			}
+//			fn(a);//这里函数调用了就会返回上面函数里重新预解析
+//			alert(a)// 这里的a还是全局的a  弹1
+			
+//			var a =123;
+//			function f(){
+//				console.log(a);//undefinded
+//				var a = 1
+//				console.log(a);//1
+//			}
+//			f()
+			
+//			console.log(parseInt(1e1))//10
+//			console.log(parseInt('1e1'))//1
+//			console.log(parseFloat(1e1))//10
+//			console.log(parseFloat('1e1'))//10
+			
+//			var s = 'aabbcc';
+//			var r = s.replace('a','b');
+//			console.log(r)
+//			
+//			function getRGB(hex){
+//				var rgb = [0,0,0];
+//				if(/#(..)(..)(..)/g.test(hex)){
+//					rgb = [parseInt(RegExp.$1,16),parseInt(RegExp.$2,16),parseInt(RegExp.$3,16)]
+//				}
+//				return "rgb("+rgb.join(",")+")"
+//			}
+//			console.log(getRGB("#ffffff"))
+			
 			var a = 1;
-			function fn(a){
-				alert(a)///这里的a回去父级找到a=1  弹1
-				a = 2//接着把a的值变成 2
+			function f(){
+				var b = 'hello';
+				a++;
+				return global
 			}
-			fn(a);//这里函数调用了就会返回上面函数里重新预解析
-			alert(a)// 这里的a还是全局的a  弹1
-			
-			
+			console.log(a)
+			console.log(b)
 		</script>
 	</body>
 </html>
