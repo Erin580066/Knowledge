@@ -31,7 +31,17 @@
 			}
 			var arr = [1,2,3,4,'1','2','1','2 ',3];
 			console.log(arr.removeRepeat());//[1, 2, 3, 4, "1", "2"]
-	
+//	JavaScript中如何检测一个变量是一个String类型？
+			var str = '1243';
+			var str1 = new String('a');
+			var arr = [1,3,4,5];
+			var obj = {};
+			console.log(typeof str);
+			console.log(str1.constructor == String || typeof str1);
+			console.log(Object.prototype.toString.call(str1) == '[object String]')	
+			console.log(Object.prototype.toString.call(obj));
+
+
 		</script>
 	</body>
 </html>
