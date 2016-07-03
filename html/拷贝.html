@@ -42,26 +42,27 @@
 		var obj2 = JSON.parse(str);
 		obj2.name.age = 200;
 		console.log(obj.name.age)
-
+//对象的深度clone
 		var obj = {
 			name:'leo',
 			age:23,
 			arr:[1,2,3,4]
-		};
-		var obj2 = sdClone(obj,true);
-		function sdClone(obj,onOff){
-			var v = obj.constructor == Array?[]:{};
+		}
+		function deepClone(obj,onoff){
+			var newobj = obj.constructor == Array?[]:{};
 			for(var attr in obj){
-				if(typeof obj[attr] == 'object' && obj[attr]!=null && onOff){
-					v[attr] = sdClone(obj[attr]);
+				if(typeof obj[attr] == 'object'&& obj[attr] != null&& onoff){
+					newobj[attr] = deepClone(obj[attr])
 				}else{
-					v[attr] = obj[attr];
+					newobj[attr] = obj[attr];
 				}
 			}
-			return v;
+			return newobj;
 		}
+		var obj2 = deepClone(obj,true);
 		obj2.arr.push(5);
-		console.log(obj.arr);
+		console.log(deepClone(obj.arr));//[1, 2, 3, 4]
+		console.log(deepClone(obj2.arr));//[1, 2, 3, 4, 5]
 	</script>
 </body>
 </html>
