@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			input{width:300px;height:50px;color:#FF0000;font:bold 30px/50px fantasy;border-radius:10px;}
+		</style>
+	</head>
+	<body>
+		<input type="text" value="March 24,2017 18:24:21"/>
+		<input type="text" />
+		<input type="button"  value="倒计时"/>
+		<script>
+			var inps = document.getElementsByTagName('input');
+			var inow = null;
+			var inew = null;
+			var t = 0;
+			var timer = null;
+			inps[2].onclick = function(){
+				clearInterval(timer);
+				inew = new Date(inps[0].value);
+				timer = setInterval(function(){
+					inow = new Date();
+					t = Math.floor((inew-inow)/1000);
+					if(t>=0){
+						inps[1].value = Math.floor(t/86400)+'天'+Math.floor(t%86400/3600)+'时'+Math.floor(t%86400%3600/60)+'分'+Math.floor(t%60)+'秒'
+					}
+				},1000)
+			}
+		</script>
+	</body>
+</html>
